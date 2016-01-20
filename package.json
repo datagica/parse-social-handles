@@ -1,0 +1,41 @@
+{
+  "name": "@datagica/parse-social-handles",
+  "version": "0.0.0",
+  "description": "Social network handle parser",
+  "main": "./lib/parse-social-handles.js",
+  "scripts": {
+    "build": "node_modules/.bin/babel src/ --out-dir lib/ && node_modules/.bin/babel tests/src/ --out-dir tests/dist/",
+    "test": "node_modules/.bin/mocha --bail --require chai tests/dist/*.js"
+  },
+  "author": "Julian Bilcke <julian.bilcke@datagica.com>",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datagica/parse-social-handles.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "babel-runtime": "6.0.14",
+    "xregexp": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel": "6.0.15",
+    "babel-cli": "6.1.1",
+    "babel-core": "6.0.20",
+    "babel-plugin-transform-regenerator": "6.0.18",
+    "babel-plugin-transform-runtime": "6.0.16",
+    "babel-polyfill": "6.0.16",
+    "babel-preset-es2015": "6.0.15",
+    "babel-preset-stage-0": "6.0.15",
+    "babel-preset-stage-1": "6.0.15",
+    "chai": "3.2.0",
+    "chai-fuzzy": "1.6.0",
+    "deep-eql": "0.1.3",
+    "ghooks": "0.3.2",
+    "lodash": "3.10.1",
+    "mocha": "2.3.3",
+    "underscore": "1.8.3"
+  }
+}
