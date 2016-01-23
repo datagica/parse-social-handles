@@ -27,12 +27,6 @@ describe('@datagica/parse-social-handles', function () {
           value: "test"
         }]
       }, {
-        input: "twitter: test",
-        output: [{
-          type: "twitter",
-          value: "test"
-        }]
-      }, {
         input: "skype: microsoft",
         output: [{
           type: "skype",
@@ -66,6 +60,28 @@ describe('@datagica/parse-social-handles', function () {
           type: "twitter",
           value: "test2"
         }]
+      }];
+
+      _promise2.default.all(tests.map(function (test) {
+        return (0, _parseSocialHandles2.default)(test.input).then(function (output) {
+          console.log("output: " + JSON.stringify(output));
+          expect(output).to.be.like(test.output);
+          return _promise2.default.resolve(true);
+        });
+      })).then(function (ended) {
+        console.log('test ended');
+        done();
+        return true;
+      }).catch(function (exc) {
+        console.error(exc);
+      });
+    });
+
+    it('should not match emails', function (done) {
+
+      var tests = [{
+        input: "test@test1.com",
+        output: []
       }];
 
       _promise2.default.all(tests.map(function (test) {

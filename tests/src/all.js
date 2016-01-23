@@ -18,12 +18,6 @@ describe('@datagica/parse-social-handles', () => {
           value: "test"
         }]
       }, {
-        input: "twitter: test",
-        output: [{
-          type: "twitter",
-          value: "test"
-        }]
-      }, {
         input: "skype: microsoft",
         output: [{
           type: "skype",
@@ -57,6 +51,28 @@ describe('@datagica/parse-social-handles', () => {
           type: "twitter",
           value: "test2"
         }]
+      }]
+
+      Promise.all(tests.map(test => {
+        return parseSocialHandles(test.input).then(output => {
+          console.log("output: " + JSON.stringify(output));
+          expect(output).to.be.like(test.output)
+          return Promise.resolve(true)
+        })
+      })).then(ended => {
+        console.log(`test ended`)
+        done()
+        return true
+      }).catch(exc => {
+        console.error(exc)
+      })
+    })
+
+    it('should not match emails', done => {
+
+      const tests = [{
+        input: "test@test1.com",
+        output: []
       }]
 
       Promise.all(tests.map(test => {

@@ -4,7 +4,7 @@ class ParseSocialHandles {
     this.opts = opts
     this.pattern = new RegExp(
       `(?:` +
-        `(?:(?:twitter\\s*\\:\\s*(?:@\\s*)?|@)([_a-zA-Z0-9]{2,18}))` +
+        `(?:(?:twitter\\.com\\/|\\s+@)([_a-zA-Z0-9]{2,18}))` +
       `|` +
         `(?:(?:skype\\s*\\:\\s*)([a-zA-Z][_a-zA-Z0-9,\\.\\-]{5,31}))` +
       `)`, "gi"
@@ -22,6 +22,7 @@ class ParseSocialHandles {
     } else {
       return Promise.reject(new Error(`input is not text but ${typeof input}`))
     }
+    text = " " + text
 
     let match, results = [];
     while ((match = this.pattern.exec(text)) !== null) {
