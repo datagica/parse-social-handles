@@ -2,7 +2,7 @@ const chai = require('chai')
 chai.use(require('chai-fuzzy'))
 const expect = chai.expect
 
-import parseSocialHandles from '../../lib/parse-social-handles'
+const parseSocialHandles = require("../lib/parse-social-handles");
 
 describe('@datagica/parse-social-handles', () => {
 
