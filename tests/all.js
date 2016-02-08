@@ -22,6 +22,20 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           type: "skype",
           value: "microsoft"
+        }],
+      },
+        {
+          input: "fr.linkedin.com/in/jamesbond",
+          output: [{
+            type: "linkedin",
+            value: "jamesbond"
+          }]
+        },
+      {
+        input: "fr.viadeo.com/fr/profile/LaraCroft",
+        output: [{
+          type: "viadeo",
+          value: "LaraCroft"
         }]
       }]
 
@@ -51,6 +65,18 @@ describe('@datagica/parse-social-handles', () => {
           type: "twitter",
           value: "test2"
         }]
+      }, {
+        input: "@johndoe @jamesbond en.viadeo.com/en/profile/JamesBond",
+        output: [{
+          type: "twitter",
+          value: "johndoe"
+        }, {
+          type: "twitter",
+          value: "jamesbond"
+        }, {
+          type: "viadeo",
+          value: "JamesBond"
+        }]
       }]
 
       Promise.all(tests.map(test => {
@@ -70,9 +96,18 @@ describe('@datagica/parse-social-handles', () => {
 
     it('should not match emails', done => {
 
-      const tests = [{
-        input: "test@test1.com",
+      const tests = [
+        {
+        input: "test @internet.com",
         output: []
+      },{
+        input: "test @microsoft.com",
+        output: []
+      },{
+         // it's a trap!
+         // at the moment we fall for it but we should fix this in the future
+        input: "foobar @jamesbond .com",
+        output: [ { type: 'twitter', value: 'jamesbond' } ]
       }]
 
       Promise.all(tests.map(test => {

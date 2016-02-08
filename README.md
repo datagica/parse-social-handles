@@ -1,6 +1,11 @@
 # @datagica/parse-social-handles
 
-Parse common social handles (twitter, skype) from a document
+Parse common professional social network handles from a document:
+
++ twitter
++ skype
++ linkedin
++ viadeo
 
 ## Installation
 
