@@ -17,23 +17,6 @@ Parse common professional social network handles from a document:
 ```javascript
 import parseSocialHandles from "@datagica/parse-social-handles";
 
-parseSocialHandles(INPUT).then(result => {
-  if (result == null) {
-    console.log("not found");
-  } else {
-    console.log("found: ", result)
-  }
-}).catch(err => {
-  console.log("invalid input data: "+err)
-})
-```
-
-## Examples
-
-```javascript
-{
-import parseSocialHandles from "@datagica/parse-social-handles";
-
 parseSocialHandles("@Uber and @SpaceX decide to merge, announce a new automated space car for 2026").then(..).catch(..)
 // will output:
 [
