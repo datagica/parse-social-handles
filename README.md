@@ -37,12 +37,14 @@ parseSocialHandles("@Uber and @SpaceX decide to merge, announce a new automated 
 // will output:
 [
   {
-    "type": "twitter",
-    "value": "Uber"
+    "network": "Twitter",
+    "username": "Uber",
+    "url": "http://twitter.com/Uber"
   },
   {
-    "type": "twitter",
-    "value": "SpaceX"
+    "network": "Twitter",
+    "username": "SpaceX",
+    "url": "http://twitter.com/SpaceX"
   }
 ]
 ```

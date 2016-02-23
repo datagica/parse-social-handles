@@ -10,32 +10,33 @@ describe('@datagica/parse-social-handles', () => {
 
 
     it('should match simple handles', done => {
-
       const tests = [{
         input: "@test",
         output: [{
-          type: "twitter",
-          value: "test"
+          "network": "Twitter",
+          "username": "test",
+          "url": "http://twitter.com/test"
         }]
       }, {
         input: "skype: microsoft",
         output: [{
-          type: "skype",
-          value: "microsoft"
+          "network": "Skype",
+          "username": "microsoft",
+          "url": "skype:microsoft?chat"
         }],
-      },
-        {
-          input: "fr.linkedin.com/in/jamesbond",
-          output: [{
-            type: "linkedin",
-            value: "jamesbond"
-          }]
-        },
-      {
+      }, {
+        input: "fr.linkedin.com/in/jamesbond",
+        output: [{
+          "network": "LinkedIn",
+          "username": "jamesbond",
+          "url": "http://linkedin.com/in/jamesbond"
+        }]
+      }, {
         input: "fr.viadeo.com/fr/profile/LaraCroft",
         output: [{
-          type: "viadeo",
-          value: "LaraCroft"
+          "type": "Viadeo",
+          "username": "LaraCroft",
+          "url": "http://www.viadeo.com/profile/LaraCroft"
         }]
       }]
 
@@ -59,23 +60,28 @@ describe('@datagica/parse-social-handles', () => {
       const tests = [{
         input: "@test1 @test2",
         output: [{
-          type: "twitter",
-          value: "test1"
+          network: 'Twitter',
+          username: 'test1',
+          url: 'http://twitter.com/test1'
         }, {
-          type: "twitter",
-          value: "test2"
+          network: 'Twitter',
+          username: 'test2',
+          url: 'http://twitter.com/test2'
         }]
       }, {
         input: "@johndoe @jamesbond en.viadeo.com/en/profile/JamesBond",
         output: [{
-          type: "twitter",
-          value: "johndoe"
+          network: 'Twitter',
+          username: 'johndoe',
+          url: 'http://twitter.com/johndoe'
         }, {
-          type: "twitter",
-          value: "jamesbond"
+          network: 'Twitter',
+          username: 'jamesbond',
+          url: 'http://twitter.com/jamesbond'
         }, {
-          type: "viadeo",
-          value: "JamesBond"
+          type: 'Viadeo',
+          username: 'JamesBond',
+          url: 'http://www.viadeo.com/profile/JamesBond'
         }]
       }]
 
@@ -96,18 +102,21 @@ describe('@datagica/parse-social-handles', () => {
 
     it('should not match emails', done => {
 
-      const tests = [
-        {
+      const tests = [{
         input: "test @internet.com",
         output: []
-      },{
+      }, {
         input: "test @microsoft.com",
         output: []
-      },{
-         // it's a trap!
-         // at the moment we fall for it but we should fix this in the future
+      }, {
+        // it's a trap!
+        // at the moment we fall for it but we should fix this in the future
         input: "foobar @jamesbond .com",
-        output: [ { type: 'twitter', value: 'jamesbond' } ]
+        output: [{
+          network: 'Twitter',
+          username: 'jamesbond',
+          url: 'http://twitter.com/jamesbond'
+        }]
       }]
 
       Promise.all(tests.map(test => {
