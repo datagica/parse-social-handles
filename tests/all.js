@@ -38,6 +38,13 @@ describe('@datagica/parse-social-handles', () => {
           "username": "LaraCroft",
           "url": "http://www.viadeo.com/profile/LaraCroft"
         }]
+      }, {
+        input: "facebook.com/mark.zuckerberg",
+        output: [{
+          "type": "Facebook",
+          "username": "mark.zuckerberg",
+          "url": "http://facebook.com/mark.zuckerberg"
+        }]
       }]
 
       Promise.all(tests.map(test => {
@@ -108,6 +115,13 @@ describe('@datagica/parse-social-handles', () => {
       }, {
         input: "test @microsoft.com",
         output: []
+      }, {
+        input: "facebook.com/zuck test @facebook.com",
+        output: [{
+          type: 'Facebook',
+          username: 'zuck',
+          url: 'http://facebook.com/zuck'
+        }]
       }, {
         // it's a trap!
         // at the moment we fall for it but we should fix this in the future

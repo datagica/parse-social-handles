@@ -2,10 +2,11 @@
 
 Parse common professional social network handles from a document:
 
-+ twitter
-+ skype
-+ linkedin
-+ viadeo
++ Twitter
++ Skype
++ LinkedIn
++ Viadeo
++ Facebook
 
 ## Installation
 
