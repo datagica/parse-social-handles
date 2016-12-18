@@ -15,7 +15,7 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           "network": "Twitter",
           "username": "test",
-          "url": "http://twitter.com/test"
+          "url": "twitter.com/test"
         }]
       }, {
         input: "skype: microsoft",
@@ -29,21 +29,21 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           "network": "LinkedIn",
           "username": "jamesbond",
-          "url": "http://linkedin.com/in/jamesbond"
+          "url": "linkedin.com/in/jamesbond"
         }]
       }, {
         input: "fr.viadeo.com/fr/profile/LaraCroft",
         output: [{
           "type": "Viadeo",
           "username": "LaraCroft",
-          "url": "http://www.viadeo.com/profile/LaraCroft"
+          "url": "www.viadeo.com/profile/LaraCroft"
         }]
       }, {
         input: "facebook.com/mark.zuckerberg",
         output: [{
           "type": "Facebook",
           "username": "mark.zuckerberg",
-          "url": "http://facebook.com/mark.zuckerberg"
+          "url": "facebook.com/mark.zuckerberg"
         }]
       }]
 
@@ -69,26 +69,26 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           network: 'Twitter',
           username: 'test1',
-          url: 'http://twitter.com/test1'
+          url: 'twitter.com/test1'
         }, {
           network: 'Twitter',
           username: 'test2',
-          url: 'http://twitter.com/test2'
+          url: 'twitter.com/test2'
         }]
       }, {
         input: "@johndoe @jamesbond en.viadeo.com/en/profile/JamesBond",
         output: [{
           network: 'Twitter',
           username: 'johndoe',
-          url: 'http://twitter.com/johndoe'
+          url: 'twitter.com/johndoe'
         }, {
           network: 'Twitter',
           username: 'jamesbond',
-          url: 'http://twitter.com/jamesbond'
+          url: 'twitter.com/jamesbond'
         }, {
           type: 'Viadeo',
           username: 'JamesBond',
-          url: 'http://www.viadeo.com/profile/JamesBond'
+          url: 'www.viadeo.com/profile/JamesBond'
         }]
       }]
 
@@ -120,7 +120,7 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           type: 'Facebook',
           username: 'zuck',
-          url: 'http://facebook.com/zuck'
+          url: 'facebook.com/zuck'
         }]
       }, {
         // it's a trap!
@@ -129,7 +129,7 @@ describe('@datagica/parse-social-handles', () => {
         output: [{
           network: 'Twitter',
           username: 'jamesbond',
-          url: 'http://twitter.com/jamesbond'
+          url: 'twitter.com/jamesbond'
         }]
       }]
 

@@ -1,6 +1,6 @@
 {
   "name": "@datagica/parse-social-handles",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Social network handle parser",
   "main": "./lib/parse-social-handles.js",
   "scripts": {

@@ -23,12 +23,12 @@ parseSocialHandles("@Uber and @SpaceX decide to merge, announce a new automated 
   {
     "network": "Twitter",
     "username": "Uber",
-    "url": "http://twitter.com/Uber"
+    "url": "twitter.com/Uber"
   },
   {
     "network": "Twitter",
     "username": "SpaceX",
-    "url": "http://twitter.com/SpaceX"
+    "url": "twitter.com/SpaceX"
   }
 ]
 ```
